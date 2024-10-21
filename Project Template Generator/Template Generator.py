@@ -19,9 +19,11 @@ import shutil
 class TemplateGenerator:
 
     # Assign Resolve
+    # DO THIS AT THE START OF EVERY SCRIPT!!!
     resolve = dvr_script.scriptapp("Resolve")
 
     # ACCESSORS & MUTATORS
+
     # Get Project Manager 
     projectManager = resolve.GetProjectManager()
 
@@ -38,13 +40,23 @@ class TemplateGenerator:
     currentTimeline = resolve.GetCurrentTimeline()
 
     # METHODS & FUNCTIONS
+
+    # Use Fusion to allow creation of GUI 
+
+    # Select a Template
+        #  If one does not exist, then allow the user to create one 
+
     # Create the Project with custom name
     projectName = input('Name for this project: ')
     newProject = projectManager.CreateProject(projectName)
 
-    # Generate a template 
+    # Allow user to select Import Media for Project
 
-    # 
+    # Put the media on the Timeline in order
+
+    # Close the GUI Window and Terminate the Script
+
+
 
 # Main Method
 TemplateGenerator()
