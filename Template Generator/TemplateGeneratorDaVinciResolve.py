@@ -46,6 +46,39 @@ class NameProject:
 
 #class ImportFiles:
 
+win_id = "TemplateGeneratorPython"
+
+# Check for instance 
+win = ui.FindWindow(win_id)
+if win:
+    win.Show()
+    win.Raise()
+    exit()
+
+default_config = {
+    "window": {
+        "ID": win_id,
+        "Geometry": [100,100,600,500],
+        "WindowTitle": "Template Generator Tool"
+    }
+}
+
+examples = [NameProject()]
+win = dispatcher.AddWindow(default_config['window'],ui.VGroup({'Spacing':5,}, [
+    example.get_ui() for example in examples
+    ])
+)
+
+def close(ev):
+    dispatcher.ExitLoop()
+
+win.On[win_id].Close = close
+
+for example in examples:
+    example.connect_handlers(win)
+
+win.Show()
+dispatcher.RunLoop()
 
 # TODO 
 # 1. Create the main the UI
